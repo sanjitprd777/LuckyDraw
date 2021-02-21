@@ -35,4 +35,19 @@ class SessionsController < ApplicationController
         reset_session
         render json: { status: 200, logged_out: true}
     end
+
+    def update
+        if @current_user
+            newTicket = @current_user.ticket + params['user']['ticket']
+            @current_user.ticket = newTicket
+            @current_user.save!
+            render json: {
+                ticket_update: "Ticket updated!"
+            }
+        else
+            render json: {
+                ticket_update: "Ticket not updated!"
+            }
+        end
+    end
 end

@@ -64,7 +64,7 @@ export default class App extends Component {
               <Home {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
             )} />
             <Route exact path={"/dashboard"} render={props => (
-              <Dashboard {...props} loggedInStatus={this.state.loggedInStatus} />
+              <Dashboard {...props} handleLogout={this.handleLogout} data={this.state} />
             )} />
           </Switch>
         </BrowserRouter>
