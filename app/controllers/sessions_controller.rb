@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         user = User
                 .find_by(email: params["user"]["email"])
                 .try(:authenticate, params["user"]["password"])
-     
+
         if user
             session[:user_id] = user.id
             render json: {
@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
         render json: { status: 200, logged_out: true}
     end
 
-    def update
+    def update_ticket
         if @current_user
             newTicket = @current_user.ticket + params['user']['ticket']
             @current_user.ticket = newTicket

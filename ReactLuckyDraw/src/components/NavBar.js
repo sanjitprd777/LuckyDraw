@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import '../style/navbar.scss';
 
 export default class NavBar extends Component {
 
@@ -24,7 +23,7 @@ export default class NavBar extends Component {
         return (
             <div className="navBar">
                 <span className="name">
-                    Signed in As: {this.props.data.user.email}
+                    Signed in as: {this.props.data.user.email}
                 </span>
                 <span>
                     |

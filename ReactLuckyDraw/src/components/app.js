@@ -3,6 +3,9 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import axios from 'axios';
 import Dashboard from './Dashboard';
 import Home from './Home';
+import NewEvent from './event/NewEvent'
+import NewReward from './event/NewReward'
+import "../style/main.scss"
 
 export default class App extends Component {
   constructor(){
@@ -66,6 +69,12 @@ export default class App extends Component {
             <Route exact path={"/dashboard"} render={props => (
               <Dashboard {...props} handleLogout={this.handleLogout} data={this.state} />
             )} />
+            <Route exact path={"/newevent"}>
+              <NewEvent />
+            </Route>
+            <Route exact path={"/newreward"}>
+              <NewReward />
+            </Route>
           </Switch>
         </BrowserRouter>
       </div>
