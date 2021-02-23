@@ -1,0 +1,13 @@
+:verbose: false
+:concurrency: <%= ENV.fetch("RAILS_MAX_THREADS") { 1 } %>
+:timeout: 30
+
+:queues:
+  - [low_priority, 1]
+  - [high_priority, 2] # high priority
+
+:schedule:
+  RewardWorker:
+    cron: '30 20 * * *'  # At 16:00 Everyday
+    queue: high_priority
+    enabled: true

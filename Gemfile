@@ -64,3 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Extras RubyGem
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 gem "rack-cors", :require => 'rack/cors'
+gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-scheduler'

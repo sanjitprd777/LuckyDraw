@@ -18,10 +18,10 @@ class EventsController < ApplicationController
     end
 
     def index
-        events = Event.all
+        events = Event.all.order('day')
         active = events.where(active: 1)
         upcoming = events.where(active: 0, finished: 0)
-        finished = events.where(finished: 1)
+        finished = events.where(finished: 1).order('created_at')
         render json: {
             success: :ok,
             active: active,
