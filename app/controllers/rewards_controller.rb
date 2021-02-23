@@ -14,13 +14,15 @@ class RewardsController < ApplicationController
     end
 
     def index
-        @rewards = Reward.where(event_id: params['event_id'])
+        rewards = Reward.where(event_id: params['event_id'])
         event_name = Event.find_by(id: params['event_id']).name
         event_rewards = []
-        
-        @rewards.each do |r|
-            user = User.find_by(id: r.user_id)
-            event_rewards << [user.email, r.reward_name]
+
+        rewards.each do |r|
+            if r.user_id?
+                user = User.find_by(id: r.user_id)
+                event_rewards << [user.email, r.reward_name]
+            end
         end
 
         event_winner = {
@@ -29,7 +31,7 @@ class RewardsController < ApplicationController
         }
 
         puts(event_winner)
-        
+
         if event_rewards.empty?
             render json: {
                 status: :ok,

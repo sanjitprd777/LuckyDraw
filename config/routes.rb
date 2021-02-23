@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
+
   resources :sessions, only: [:create]
   resources :registrations, only: [:create]
   resources :events, only: [:create, :index]
