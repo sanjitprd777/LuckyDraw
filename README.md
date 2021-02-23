@@ -1,6 +1,6 @@
 # Lucky Draw Gaming Service
 
-This README will document the partial fulfilment of the Grofers assignment. We explains each task briefly and how we accomplish them. We also provide a detailed view of all the services, tools, databases, programming languages used for the same.
+In this readme, we explains each task briefly and how we accomplish them. We also provide a detailed view of all the services, tools, databases, programming languages used for the same.
 
 * Ruby version
     * ruby 2.4.10p364 (2020-03-31 revision 67879) [x86_64-linux]
@@ -17,8 +17,8 @@ This README will document the partial fulfilment of the Grofers assignment. We e
     * Name: postgresql
 
 * Tools
-    * pgadmin: UI to view database tables
-    * Postman: To make API calls to server
+    * pgadmin: User interface to view database tables entries
+    * Postman: To test API calls on the localhost server
 
 * Frontend
     * React
@@ -32,8 +32,6 @@ Design & Implement a service which allows users to get Lucky Draw Raffle tickets
 # Functional Requirements
 
 # 1. API which allows users to get the raffle tickets
-
-* If the user dosen't have generated any raffle ticket for the event, then she call an API 'generate_raffle_ticket', which issue them a raffle ticket from available tickets.
 
 * User place order and Buy 
     * For eg. 5 tickets
@@ -57,6 +55,12 @@ Design & Implement a service which allows users to get Lucky Draw Raffle tickets
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/2.2.png?raw=true)
 
 
+* List of rewards for any Active event
+
+![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/2.3.png?raw=true)
+
+
+
 # 3. Design an API which allows users to participate in the game. Once a user has participated with a raffle ticket, she shouldn’t be able to participate again in the same event.
 
 * First we check if user has any ticket left in their account, if not we won't allow participation
@@ -65,12 +69,12 @@ Design & Implement a service which allows users to get Lucky Draw Raffle tickets
 
 * Then user can participate by click on "Participate" button for any active events
 * A user can participate in multiple active events
-* On successful participation we decrease ticket count by 1
 
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/3.2.png?raw=true)
 
 
-* We also check if user has already participated in same event
+* On successful participation we decrease ticket count by 1
+* We also check if user has already participated in the event
 
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/3.3.png?raw=true)
 
@@ -88,36 +92,42 @@ Design & Implement a service which allows users to get Lucky Draw Raffle tickets
 
 # 5. Compute the winner for the event and announce the winner.
 
-* We have made a CronJob which will run everyday at 8:00 AM. The task of the job is to run the "RewardWorker" to compute the winner for all the active events that are finished on current date.
+* We have made a CronJob which will run everyday at 8:00 AM.
+* The task of the sidekiq-scheduler job is to run the "RewardWorker" which then computes the winner for all the events that are finished on current date.
+
+* Sidekiq Job Scheduler
 
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/5.1.png?raw=true)
 
 
+* RewardWorker
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/5.2.png?raw=true)
+
 
 # Non-Functional Requirements
 
 * Please share the github repository when you start working on the project.
-    * Done
+    * Completed
 
 * Code should be modular and readable.
-    * Done (improvements possible)
+    * Completed (improvements possible)
 
 * Make your ReadMe as descriptive as possible.
-    * Done
+    * Completed
 
 * Code should be properly documented.
-    * Done
+    * Completed
 
 * You can use Language and Database of your choice
     * Language: Ruby, React
     * Database: postgresql
 
 * Building UI on top of this is completely optional. Brownie points if you build the entire app.
-    * Done (improvements possible)
+    * Completed (improvements possible)
 
 # Extra Work
 
-* Also made a complete user authentication system and handling cookies using session store.
+* Made a complete user authentication system and handling cookies using session store.
 
-* Also made front-end for "New Event" and "Reward" addition
+* Developed the front-end for "New Event" and "Reward" addition to database at ease.
