@@ -1,5 +1,5 @@
 :verbose: false
-:concurrency: <%= ENV.fetch("RAILS_MAX_THREADS") { 1 } %>
+:concurrency: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 :timeout: 30
 
 :queues:
@@ -8,6 +8,6 @@
 
 :schedule:
   RewardWorker:
-    cron: '30 20 * * *'  # At 16:00 Everyday
+    cron: '0 8 * * *'  # At 08:00 AM Everyday
     queue: high_priority
     enabled: true
