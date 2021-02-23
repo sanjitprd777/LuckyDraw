@@ -41,18 +41,21 @@ Design & Implement a service which allows users to get Lucky Draw Raffle tickets
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/1.1.png?raw=true)
 
 
+* When user place order for 5 tickets, "Tickets left" updated
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/1.2.png?raw=true)
 
 # 2. - Design an API which shows the next Lucky Draw Event timing & the corresponding reward.
 
+* List of all upcoming events
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/2.1.png?raw=true)
 
 
+* List of rewards for any upcoming event
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/2.2.png?raw=true)
 
-* A cron_job will run everyday at 8AM which will compute the winner using API 'find_winner'.
-* The job will also resets the users (ticket_id) and tikets (used) data.
-* The same users can participate in next event and we can use the same ticket from database.
 
 # 3. Design an API which allows users to participate in the game. Once a user has participated with a raffle ticket, she shouldn’t be able to participate again in the same event.
 
@@ -63,18 +66,24 @@ Design & Implement a service which allows users to get Lucky Draw Raffle tickets
 * Then user can participate by click on "Participate" button for any active events
 * A user can participate in multiple active events
 * On successful participation we decrease ticket count by 1
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/3.2.png?raw=true)
 
+
 * We also check if user has already participated in same event
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/3.3.png?raw=true)
 
 
 # 4. Design an API which lists all the winners of all the events in the last one week.
 
-* Our API will show all the events past one week
+* We have made an API will show all the "Finished Events" for the past week
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/4.1.png?raw=true)
 
-* User can click on "Show List" button to see all the winners
+
+* A user can click on "Show List" button to see all the winners for that event below
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/4.2.png?raw=true)
 
 # 5. Compute the winner for the event and announce the winner.
