@@ -57,7 +57,7 @@ function ShowEvent(props) {
     }
 
     if(title === "Active Events"){
-        tHead = ["Event Name", "Winners", "Time Left (days)", "Participate"]
+        tHead = ["Event Name", "Winners", "Time Left (days)", "Participate", "Rewards"]
         tableData = data.map((row, index) => {
             return(
                 <tr key={index}>
@@ -67,19 +67,25 @@ function ShowEvent(props) {
                     <td>
                         <button value={row.id} onClick={handleParticipate}>Participate</button>
                     </td>
+                    <td>
+                        <button value={row.id} onClick={handleReward}>Reward</button>
+                    </td>
                 </tr>
             )
         })
     }
 
     if(title === "Upcoming Events"){
-        tHead = ["Event Name", "Winners", "Active On"]
+        tHead = ["Event Name", "Winners", "Active On", "Rewards"]
         tableData = data.map((row, index) => {
             return(
                 <tr key={index}>
                     <td>{row.name}</td>
                     <td>{row.winner}</td>
                     <td>{row.startDate}</td>
+                    <td>
+                        <button value={row.id} onClick={handleReward}>Reward</button>
+                    </td>
                 </tr>
             )
         })

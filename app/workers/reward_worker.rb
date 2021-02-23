@@ -5,7 +5,7 @@ class RewardWorker
   def perform
 
     puts("**********************")
-    puts("Reward Worker Invoked")
+    puts("RewardWorker Invoked Success")
     puts("**********************")
 
 

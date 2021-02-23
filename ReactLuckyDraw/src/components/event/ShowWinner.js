@@ -2,18 +2,36 @@ import React from 'react';
 
 function ShowWinner(props) {
     const prevData = props.data[0];
-    const title = "Winners List for event " + prevData.event_name;
-    const tHead = ["User Email", "Reward Won"];
     const data = prevData.event_rewards;
-    const tableData = data.map((row, index) => {
-        return(
-            <tr key={index}>
-                <td>{row[0]}</td>
-                <td>{row[1]}</td>
-            </tr>
-        )
-    })
+    var title = "Winners List for event " + prevData.event_name;
+    var tHead;
+    var tableData;
 
+    if(data[0].size === 1){
+        title = "Winners List for event: " + prevData.event_name;
+        tHead = ["User Email", "Reward Won"];
+        tableData = data.map((row, index) => {
+            return(
+                <tr key={index}>
+                    <td>{row[0]}</td>
+                    <td>{row[1]}</td>
+                </tr>
+            )
+        })
+    
+    }
+    else{
+        title = "Reward List for event: " + prevData.event_name;
+        tHead = ["Reward List"];
+        tableData = data.map((row, index) => {
+            return(
+                <tr key={index}>
+                    <td>{row[0]}</td>
+                </tr>
+            )
+        })
+    }
+    
     const tableHead = tHead.map((index) => {
         return(
             <th key={index}>

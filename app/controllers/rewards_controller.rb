@@ -22,6 +22,8 @@ class RewardsController < ApplicationController
             if r.user_id?
                 user = User.find_by(id: r.user_id)
                 event_rewards << [user.email, r.reward_name]
+            else
+                event_rewards << [r.reward_name]
             end
         end
 
