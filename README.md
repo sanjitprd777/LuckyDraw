@@ -56,7 +56,8 @@ Design & Implement a service which allows users to get Lucky Draw Raffle tickets
 
 # 3. Design an API which allows users to participate in the game. Once a user has participated with a raffle ticket, she shouldn’t be able to participate again in the same event.
 
-* First we check if user has any ticket left in their account
+* First we check if user has any ticket left in their account, if not we won't allow participation
+
 ![alt text](https://github.com/Sanjit-Prasad/LuckyDraw/blob/main/images/3.1.png?raw=true)
 
 * Then user can participate by click on "Participate" button for any active events
